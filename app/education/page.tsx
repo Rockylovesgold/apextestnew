@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Clock, BookOpen } from "lucide-react";
 import { GoldButton } from "@/components/ui/GoldButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { PageAccents } from "@/components/layout/PageAccents";
 import { courses, type Course } from "@/lib/mockData";
 
 const filterTabs = ["All Courses", "Beginner", "Intermediate", "Advanced"] as const;
@@ -48,9 +49,10 @@ export default function EducationPage() {
         );
 
   return (
-    <>
+    <div style={{ position: "relative" }}>
+      <PageAccents />
       {/* Hero */}
-      <section className="section-padding" style={{ paddingTop: "8rem", paddingBottom: "4rem" }}>
+      <section className="section-padding" style={{ paddingTop: "8rem", paddingBottom: "4rem", position: "relative", zIndex: 2 }}>
         <div className="container-max">
           <SectionHeading
             eyebrow="Education"
@@ -195,6 +197,6 @@ export default function EducationPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

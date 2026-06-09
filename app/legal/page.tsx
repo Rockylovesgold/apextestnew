@@ -2,6 +2,7 @@
 
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AlertTriangle } from "lucide-react";
+import { PageAccents } from "@/components/layout/PageAccents";
 
 const sections = [
   {
@@ -24,8 +25,9 @@ const sections = [
 
 export default function LegalPage() {
   return (
-    <main style={{ minHeight: "100vh", paddingTop: "8rem", paddingBottom: "6rem" }}>
-      <div className="section-padding container-max">
+    <main style={{ minHeight: "100vh", paddingTop: "8rem", paddingBottom: "6rem", position: "relative" }}>
+      <PageAccents />
+      <div className="section-padding container-max" style={{ position: "relative", zIndex: 2 }}>
         <SectionHeading
           eyebrow="Legal"
           title="Legal & Risk Disclosure"

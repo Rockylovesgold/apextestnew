@@ -338,10 +338,97 @@ p { max-width: 65ch; line-height: var(--leading-relaxed); }
   animation: float-soft 7s ease-in-out infinite;
 }
 
-/* Section heading underline — slow grow on visible */
-.reveal.in-view h2,
-.reveal.in-view h3 {
+/* Section heading underline — gradient bar that grows in when revealed */
+.section-heading-h2 {
   position: relative;
+  display: block;
+}
+
+.section-heading-underline {
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin-top: 14px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(54, 128, 255, 0) 0%,
+    rgba(54, 128, 255, 0.9) 30%,
+    rgba(122, 179, 255, 1) 50%,
+    rgba(54, 128, 255, 0.9) 70%,
+    rgba(54, 128, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.35s;
+  animation: heading-underline-shimmer 4.5s ease-in-out infinite 1.5s;
+}
+
+.reveal.in-view .section-heading-underline {
+  transform: scaleX(1);
+}
+
+@keyframes heading-underline-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ============================================
+   PAGE ACCENTS — ambient orbs for plain pages
+   ============================================ */
+
+.page-accent-orb {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  filter: blur(72px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.page-accent-orb--1 {
+  width: 520px;
+  height: 520px;
+  top: -120px;
+  left: -160px;
+  background: radial-gradient(circle, rgba(54, 128, 255, 0.22) 0%, rgba(54, 128, 255, 0) 70%);
+  animation: orb-drift-a 26s ease-in-out infinite;
+}
+
+.page-accent-orb--2 {
+  width: 420px;
+  height: 420px;
+  top: 40%;
+  right: -140px;
+  background: radial-gradient(circle, rgba(122, 179, 255, 0.18) 0%, rgba(122, 179, 255, 0) 70%);
+  animation: orb-drift-b 32s ease-in-out infinite;
+}
+
+.page-accent-orb--3 {
+  width: 360px;
+  height: 360px;
+  bottom: -120px;
+  left: 35%;
+  background: radial-gradient(circle, rgba(30, 80, 179, 0.20) 0%, rgba(30, 80, 179, 0) 70%);
+  animation: orb-drift-c 38s ease-in-out infinite;
+}
+
+@keyframes orb-drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(80px, 40px) scale(1.08); }
+  66% { transform: translate(40px, 100px) scale(0.95); }
+}
+
+@keyframes orb-drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-90px, -60px) scale(1.12); }
+}
+
+@keyframes orb-drift-c {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(60px, -50px) scale(0.92); }
+  75% { transform: translate(-50px, 30px) scale(1.06); }
 }
 
 /* ============================================
@@ -361,6 +448,8 @@ p { max-width: 65ch; line-height: var(--leading-relaxed); }
     -webkit-text-fill-color: var(--color-text-muted);
     color: var(--color-text-muted);
   }
+  .section-heading-underline { transform: scaleX(1); }
+  .page-accent-orb { animation: none; }
 }
 
 /* ============================================

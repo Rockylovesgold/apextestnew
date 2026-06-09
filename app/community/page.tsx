@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GoldButton } from "@/components/ui/GoldButton";
 import { useState } from "react";
 import { ChevronDown, MessageCircle, BarChart3, BookOpen, Bell, Users, Shield } from "lucide-react";
+import { PageAccents } from "@/components/layout/PageAccents";
 
 const benefits = [
   {
@@ -63,8 +64,9 @@ export default function CommunityPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <main style={{ minHeight: "100vh" }}>
-      <section className="section-padding" style={{ paddingTop: "8rem", paddingBottom: "4rem" }}>
+    <main style={{ minHeight: "100vh", position: "relative" }}>
+      <PageAccents />
+      <section className="section-padding" style={{ paddingTop: "8rem", paddingBottom: "4rem", position: "relative", zIndex: 2 }}>
         <div className="container-max">
           <SectionHeading
             eyebrow="Community"

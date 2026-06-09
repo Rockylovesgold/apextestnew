@@ -33,7 +33,7 @@ export function SectionHeading({
         </span>
       )}
       <h2
-        className="stagger-up"
+        className="stagger-up section-heading-h2"
         style={{
           ["--stagger-index" as string]: 1,
           maxWidth: isCenter ? "none" : undefined,
@@ -41,6 +41,11 @@ export function SectionHeading({
         }}
       >
         {title}
+        <span
+          aria-hidden
+          className="section-heading-underline"
+          style={{ marginLeft: isCenter ? "auto" : "0", marginRight: isCenter ? "auto" : "0" }}
+        />
       </h2>
       {subtitle && (
         <p

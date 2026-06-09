@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Mail, Send, Phone, Clock, MapPin, ChevronDown } from "lucide-react";
 import { GoldButton } from "@/components/ui/GoldButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { PageAccents } from "@/components/layout/PageAccents";
 import { faqItems } from "@/lib/mockData";
 
 const contactDetails = [
@@ -68,9 +69,10 @@ export default function ContactPage() {
   };
 
   return (
-    <>
+    <div style={{ position: "relative" }}>
+      <PageAccents />
       {/* Hero */}
-      <section className="section-padding" style={{ paddingTop: "8rem", paddingBottom: "4rem" }}>
+      <section className="section-padding" style={{ paddingTop: "8rem", paddingBottom: "4rem", position: "relative", zIndex: 2 }}>
         <div className="container-max">
           <SectionHeading
             eyebrow="Contact"
@@ -254,6 +256,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
