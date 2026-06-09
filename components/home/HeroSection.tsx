@@ -230,7 +230,7 @@ function HeroVisual() {
       style={{
         position: "relative",
         width: "100%",
-        aspectRatio: "16 / 11",
+        aspectRatio: "1600 / 916",
         borderRadius: "var(--radius-lg)",
         overflow: "hidden",
         border: "1px solid rgba(54,128,255,0.20)",
@@ -244,7 +244,7 @@ function HeroVisual() {
         fill
         priority
         sizes="(max-width: 1024px) 100vw, 50vw"
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: "contain" }}
       />
 
       {/* Subtle blue corner glow */}

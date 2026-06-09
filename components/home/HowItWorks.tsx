@@ -41,9 +41,9 @@ export function HowItWorks() {
           style={{
             position: "relative",
             width: "100%",
-            maxWidth: "920px",
+            maxWidth: "720px",
             margin: "0 auto var(--space-8)",
-            aspectRatio: "4 / 5",
+            aspectRatio: "1 / 1",
             borderRadius: "var(--radius-lg)",
             overflow: "hidden",
             border: "1px solid rgba(54,128,255,0.20)",
@@ -55,7 +55,7 @@ export function HowItWorks() {
             src="/brand/aiov-ecosystem.jpg"
             alt="The AIOV Capital ecosystem — team, mission, and structure"
             fill
-            sizes="(max-width: 920px) 100vw, 920px"
+            sizes="(max-width: 720px) 100vw, 720px"
             style={{ objectFit: "contain" }}
           />
           <div

@@ -49,22 +49,24 @@ export function AboutIntroSection() {
           <div
             className="reveal card"
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              minHeight: "240px",
               position: "relative",
+              width: "100%",
+              maxWidth: "440px",
+              margin: "0 auto",
+              aspectRatio: "1086 / 1600",
               overflow: "hidden",
-              background: "rgba(10,11,13,0.8)",
+              background: "linear-gradient(160deg, #0C132A 0%, #070C1C 100%)",
               padding: 0,
+              border: "1px solid rgba(54,128,255,0.20)",
+              boxShadow: "0 24px 60px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(54,128,255,0.08) inset",
             }}
           >
             <Image
               src="/brand/aiov-evolution-transition.jpg"
               alt="AIOV Capital — evolved from Apex Gold Trading"
               fill
-              style={{ objectFit: "contain", padding: "24px" }}
-              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: "contain" }}
+              sizes="(max-width: 768px) 100vw, 440px"
             />
           </div>
         </div>
