@@ -2,8 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import BackgroundCanvas from "@/components/layout/BackgroundCanvas";
 import { ClientAppWrapper } from "@/components/layout/ClientAppWrapper";
-import QueryProvider from "@/components/app/QueryProvider";
-import AuthProvider from "@/components/app/AuthProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -56,11 +54,7 @@ export default function RootLayout({
     >
       <body className="antialiased noise-overlay">
         <BackgroundCanvas />
-        <QueryProvider>
-          <AuthProvider>
-            <ClientAppWrapper>{children}</ClientAppWrapper>
-          </AuthProvider>
-        </QueryProvider>
+        <ClientAppWrapper>{children}</ClientAppWrapper>
       </body>
     </html>
   );
