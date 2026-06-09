@@ -275,6 +275,76 @@ p { max-width: 65ch; line-height: var(--leading-relaxed); }
 .reveal-group > .reveal-scale:nth-child(6) { transition-delay: 450ms; }
 
 /* ============================================
+   AMBIENT MICRO-ANIMATIONS
+   Subtle motion to keep pages feeling alive
+   ============================================ */
+
+/* Eyebrow labels — slow gradient shimmer */
+@keyframes eyebrow-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.label-eyebrow {
+  background: linear-gradient(
+    90deg,
+    var(--color-text-muted) 0%,
+    var(--color-accent-gold) 50%,
+    var(--color-text-muted) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: eyebrow-shimmer 6s ease-in-out infinite;
+}
+
+/* Card icons — slow breathing glow */
+@keyframes icon-breath {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(54, 128, 255, 0);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 0 24px 2px rgba(54, 128, 255, 0.18);
+    transform: translateY(-1px);
+  }
+}
+
+.card-icon {
+  animation: icon-breath 5.5s ease-in-out infinite;
+}
+
+/* Stagger card icons across the page so they don't pulse in sync */
+.card:nth-child(2n) .card-icon { animation-delay: -1.8s; }
+.card:nth-child(3n) .card-icon { animation-delay: -3.4s; }
+.card:nth-child(4n) .card-icon { animation-delay: -2.6s; }
+
+/* Section accent — slow horizontal sweep on top of stat bar / hero accents */
+@keyframes accent-sweep {
+  0% { transform: translateX(-100%); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* Subtle float on hero-visual + featured cards */
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.hero-slide-left > div {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+/* Section heading underline — slow grow on visible */
+.reveal.in-view h2,
+.reveal.in-view h3 {
+  position: relative;
+}
+
+/* ============================================
    REDUCED MOTION
    ============================================ */
 
@@ -286,6 +356,11 @@ p { max-width: 65ch; line-height: var(--leading-relaxed); }
     transition-duration: 0.01ms !important;
   }
   .reveal { opacity: 1; transform: none; }
+  .label-eyebrow {
+    background: none;
+    -webkit-text-fill-color: var(--color-text-muted);
+    color: var(--color-text-muted);
+  }
 }
 
 /* ============================================

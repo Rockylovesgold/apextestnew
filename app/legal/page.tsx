@@ -32,9 +32,9 @@ export default function LegalPage() {
           subtitle="Important information about our services and the risks involved"
         />
 
-        <div className="card reveal" style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+        <div className="reveal-group" style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           {/* First section with warning icon */}
-          <div style={{ display: "flex", gap: "16px" }}>
+          <div className="card reveal" style={{ display: "flex", gap: "16px" }}>
             <AlertTriangle
               size={28}
               strokeWidth={1.5}
@@ -51,7 +51,7 @@ export default function LegalPage() {
 
           {/* Remaining sections */}
           {sections.slice(1).map((s) => (
-            <div key={s.title}>
+            <div key={s.title} className="card reveal">
               <h2 style={{ marginBottom: "16px" }}>{s.title}</h2>
               <p style={{ fontSize: "var(--text-sm)", color: "var(--color-text-secondary)", lineHeight: "var(--leading-relaxed)", margin: 0 }}>
                 {s.body}
@@ -60,7 +60,7 @@ export default function LegalPage() {
           ))}
 
           {/* Footer note */}
-          <div style={{ paddingTop: "16px", borderTop: "1px solid var(--color-border-subtle)" }}>
+          <div className="reveal" style={{ paddingTop: "16px", borderTop: "1px solid var(--color-border-subtle)" }}>
             <p style={{ fontSize: "var(--text-sm)", color: "var(--color-text-muted)", lineHeight: "var(--leading-relaxed)", margin: 0 }}>
               This page forms part of our legal and regulatory disclosure. For
               full terms of use, privacy, and cookies, please see the relevant

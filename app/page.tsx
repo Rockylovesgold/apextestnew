@@ -13,7 +13,6 @@ import { HowItWorks } from "@/components/home/HowItWorks";
 import { MT5PlatformSection } from "@/components/home/MT5PlatformSection";
 import { MarketOverview } from "@/components/home/MarketOverview";
 import { TestimonialCarousel } from "@/components/home/TestimonialCarousel";
-import { NewsletterSection } from "@/components/home/NewsletterSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { RiskDisclaimerSection } from "@/components/home/RiskDisclaimerSection";
 
@@ -35,7 +34,6 @@ export default function Home() {
       <MarketOverview />
       <TeamSection />
       <TestimonialCarousel />
-      <NewsletterSection />
       <FinalCTA />
       <RiskDisclaimerSection />
     </>

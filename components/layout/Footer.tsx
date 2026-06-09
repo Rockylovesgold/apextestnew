@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -8,7 +7,6 @@ import {
   Send,
   Facebook,
   Instagram,
-  CheckCircle,
   ArrowRight,
   MapPin,
   MessageCircle,
@@ -48,14 +46,6 @@ const socialLinks = [
 ];
 
 export function Footer() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) setSubmitted(true);
-  };
-
   return (
     <footer className="relative overflow-hidden bg-bg-secondary border-t border-white/10">
       <div
@@ -64,7 +54,7 @@ export function Footer() {
       />
 
       <div className="container-max relative py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
           <div className="space-y-4">
             <Link href="/" className="inline-flex">
               <Image src="/aiov-capital-logo.png" alt="AIOV Capital" width={120} height={120} className="h-16 w-auto" />
@@ -132,40 +122,6 @@ export function Footer() {
             </div>
           </div>
 
-          <div>
-            <p className="label-eyebrow mb-3">Weekly Intelligence</p>
-            <p className="text-sm text-text-tertiary mb-4">
-              Gold market wrap-up every Monday — key levels, macro drivers, top setups.
-            </p>
-
-            {submitted ? (
-              <div className="flex items-center gap-2 px-3 py-3 border border-green-profit/30 bg-green-profit/10 rounded-md text-green-profit text-xs font-medium">
-                <CheckCircle size={14} />
-                You&apos;re on the list!
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  required
-                  aria-label="Email address for newsletter"
-                  className="w-full h-11 px-3 text-sm bg-bg-tertiary border border-white/10 rounded-md text-text-primary outline-none focus:border-gold/60 focus:ring-2 focus:ring-gold/20"
-                />
-                <button
-                  type="submit"
-                  className="w-full h-11 px-4 bg-gold text-bg-primary rounded-md text-sm font-semibold inline-flex items-center justify-center gap-1.5 hover:brightness-110 transition"
-                >
-                  <Send size={13} />
-                  Subscribe Free
-                </button>
-              </form>
-            )}
-
-            <p className="text-xs text-text-tertiary mt-2">No spam. Unsubscribe any time.</p>
-          </div>
         </div>
       </div>
 
